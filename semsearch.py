@@ -66,11 +66,6 @@ while (len(search_query) > 0):
 
     print(results)
 
-    for i, row in results.iterrows():
-        # Print the rank, distance, key, and document for each result.
-        print(f"Rank: {i}, Distance: {row['query_distance']}, Key: {row[col_key]}, Document: {row[col_document]}")
-
-
     print()
     print('What is your query? (blank to exit)')
     search_query = input()
