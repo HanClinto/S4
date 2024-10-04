@@ -5,7 +5,7 @@
 
 from FlagEmbedding import FlagModel
 
-model = FlagModel('BAAI/bge-small-en-v1.5')
+model = FlagModel('BAAI/bge-small-en-v1.5', use_fp16=True)
 
 # First, import our data (input.csv)
 import pandas as pd
@@ -35,7 +35,7 @@ data.to_csv("input_with_embeddings.csv", index=False)
 
 # Now, let's define a function that will take a query and return the most similar items in our data.
 def search(query, top_n=5):
-    print(f' Searching for documents related to: {query}')
+    print(f'Searching for documents related to: {query}')
     start_time = time.time()
     query_embedding = model.encode(query)
     # Distance is calculated as the cosine similarity between the query and the document.
